@@ -19,13 +19,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+        
+    }
+    @IBAction func BtnTapped(_ sender: UIButton) {
+        storybrain.nextStory(userChoice: sender.currentTitle!)
+        updateUI()
+    }
+    
+    func updateUI() {
         storyLabel.text = storybrain.updateTitle()
         choice1Button.setTitle(storybrain.updateChoice1(), for: .normal)
         choice2Button.setTitle(storybrain.updateChoice2(), for: .normal)
         
     }
-    @IBAction func BtnTapped(_ sender: UIButton) {
-        
-    }
-    
 }
